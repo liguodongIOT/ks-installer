@@ -112,9 +112,12 @@ ks_alerting_adapter_tag: "v3.0.0"
 kubefed_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}"
 kubefed_image: kubefed
 kubefed_image_tag: v0.7.0
-tower_repo: "{{ base_repo }}{{ namespace_override | default('kubespheredev') }}"
+tower_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}"
 tower_image: tower
-tower_image_tag: "latest"
+tower_image_tag: "v0.2.0"
+post_install_job_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}"
+post_install_job_image: kubectl
+post_install_job_tag: "v1.19.0"
 
 # kubeedge
 cloudcore_repo: "{{ base_repo }}{{ namespace_override | default('kubeedge') }}/cloudcore"
@@ -125,8 +128,8 @@ edge_watcher_agent_repo: "{{ base_repo }}{{ namespace_override | default('kubesp
 edge_watcher_agent_tag: "v0.1.0"
 
 #openpitrix:
-openpitrix_job_tag: "v3.1.0-alpha1"
-openpitrix_job_repo: "kubespheredev/openpitrix-jobs"
+openpitrix_job_tag: "v3.1.0"
+openpitrix_job_repo: "{{ base_repo }}{{ namespace_override | default('kubespheredev') }}/openpitrix-jobs"
 
 minio_repo: "{{ base_repo }}{{ namespace_override | default('minio') }}/minio"
 minio_tag: RELEASE.2019-08-07T01-59-21Z
@@ -138,24 +141,24 @@ snapshot_controller_repo: "{{ base_repo }}{{ namespace_override | default('csipl
 snapshot_controller_tag: "v2.0.1"
 
 #jenkins:
-jenkins_repo: "{{ base_repo }}{{ namespace_override | default('kubespheredev') }}/ks-jenkins"
+jenkins_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/ks-jenkins"
 jenkins_tag: 2.249.1
 jnlp_slave_repo: "{{ base_repo }}{{ namespace_override | default('jenkins') }}/jnlp-slave"
 jnlp_slave_tag: 3.27-1
 builder_base_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/builder-base"
-builder_base_tag: v2.1.0
+builder_base_tag: v3.1.0
 builder_nodejs_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/builder-nodejs"
-builder_nodejs_tag: v2.1.0
+builder_nodejs_tag: v3.1.0
 builder_maven_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/builder-maven"
-builder_maven_tag: v2.1.0
+builder_maven_tag: v3.1.0
 builder_go_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/builder-go"
-builder_go_tag: v2.1.0
+builder_go_tag: v3.1.0
 
 #s2i
-s2ioperator_repo: "{{ base_repo }}{{ namespace_override | default('kubespheredev') }}/s2ioperator"
+s2ioperator_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/s2ioperator"
 s2ioperator_tag: "v3.1.0"
-s2irun_repo: "{{ base_repo }}{{ namespace_override | default('kubespheredev') }}/s2irun"
-s2irun_tag: "release-2.1"
+s2irun_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/s2irun"
+s2irun_tag: "v2.1.1"
 
 s2itemplates_tag: v2.1.0
 binary_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/s2i-binary"
@@ -185,7 +188,7 @@ prometheus_config_reloader_tag: v0.42.1
 prometheus_operator_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/prometheus-operator"
 prometheus_operator_tag: v0.42.1
 kube_rbac_proxy_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/kube-rbac-proxy"
-kube_rbac_proxy_tag: v0.4.1
+kube_rbac_proxy_tag: v0.8.0
 kube_state_metrics_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/kube-state-metrics"
 kube_state_metrics_tag: v1.9.7
 node_exporter_repo: "{{ base_repo }}{{ namespace_override | default('prom') }}/node-exporter"
@@ -201,7 +204,7 @@ grafana_tag: 7.4.3
 
 #notification-manager
 notification_manager_operator_proxy_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/kube-rbac-proxy"
-notification_manager_operator_proxy_tag: v0.4.1
+notification_manager_operator_proxy_tag: v0.8.0
 notification_manager_operator_repo: "{{ base_repo }}{{ namespace_override | default('kubespheredev') }}/notification-manager-operator"
 notification_manager_operator_tag: v1.0.0
 notification_manager_repo: "{{ base_repo }}{{ namespace_override | default('kubespheredev') }}/notification-manager"
@@ -240,7 +243,7 @@ auditing_webhook_tag: v0.1.2
 
 #ingress:
 nginx_ingress_controller_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/nginx-ingress-controller"
-nginx_ingress_controller_tag: v0.44.0
+nginx_ingress_controller_tag: v0.35.0
 defaultbackend_repo: "{{ base_repo }}{{ namespace_override | default('mirrorgooglecontainers') }}/defaultbackend-amd64"
 defaultbackend_tag: 1.4
 
